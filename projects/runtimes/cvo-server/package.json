@@ -1,0 +1,41 @@
+{
+    "name": "@cvo/server",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO Node/Bun/Deno server host — thin adapter over @cvo/core (no duplicate contract semantics)",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./node": {
+            "types": "./dist/node.d.ts",
+            "default": "./dist/node.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^22.15.0"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "keywords": [
+        "cvo",
+        "server",
+        "node"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "name": "@cvo/core",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO contract v1 — Invocation, Result, Diagnostic, Capability, Transport (edge-first, no Node runtime)",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./contract": {
+            "types": "./dist/contract.d.ts",
+            "default": "./dist/contract.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "keywords": [
+        "cvo",
+        "contract",
+        "workers",
+        "edge"
+    ]
+}

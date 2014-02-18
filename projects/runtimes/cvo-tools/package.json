@@ -1,0 +1,44 @@
+{
+    "name": "@cvo/cvo",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO toolchain entry — contract catalog and host utilities",
+    "license": "MIT",
+    "bin": {
+        "cvo": "./bin/cvo.js"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "bin",
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/server": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^22.15.0"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "keywords": [
+        "cvo",
+        "cli",
+        "workers",
+        "edge"
+    ]
+}
