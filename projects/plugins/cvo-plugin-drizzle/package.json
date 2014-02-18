@@ -1,0 +1,35 @@
+{
+    "name": "@cvo/plugin-drizzle",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO Drizzle ORM capability plugin — D1 SQLite, HTTP remote SQL, and Node driver profiles with Workers safety gate",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/plugin": "workspace:*"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "drizzle",
+        "d1",
+        "sqlite",
+        "workers"
+    ]
+}

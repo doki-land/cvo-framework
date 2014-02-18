@@ -1,0 +1,35 @@
+{
+    "name": "@cvo/plugin-i18n-fluent",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO Fluent i18n backend — FTL resources via @fluent/bundle",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/plugin": "workspace:*",
+        "@cvo/plugin-i18n": "workspace:*",
+        "@fluent/bundle": "^0.19.0",
+        "@fluent/langneg": "^0.7.0"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "i18n",
+        "fluent"
+    ]
+}
