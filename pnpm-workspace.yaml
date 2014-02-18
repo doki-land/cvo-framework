@@ -1,0 +1,5 @@
+packages:
+  - 'projects/runtimes/*'
+  - 'projects/plugins/*'
+  - 'projects/examples/*'
+  - 'projects/homepage'

@@ -1,11 +1,16 @@
 {
+    "name": "cvo-framework",
     "private": true,
+    "type": "module",
+    "packageManager": "pnpm@9.15.0",
     "scripts": {
-        "doc": "cargo doc --no-deps --all-features",
-        "test": "cargo test --release",
-        "fmt": "cargo fmt --all",
-        "p": "git push && git push --tags --prune",
-        "reset": "git reset Head~ --soft",
-        "u": "cargo upgrade --workspace"
+        "lint": "biome check .",
+        "fmt": "biome format --write .",
+        "fmt:check": "biome format ."
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.7",
+        "@types/node": "^22.15.0",
+        "typescript": "^5.8.3"
     }
 }

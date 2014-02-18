@@ -12,3 +12,14 @@ time-travel.*
 # Rust
 target/
 Cargo.lock
+
+# Node
+node_modules/
+dist/
+.pnpm-store/
+.wrangler/
+
+# npm placeholder / trust (local only)
+.placeholder-npm-cache.json
+scripts/.placeholder-npm-cache.json
+.env.placeholder.local

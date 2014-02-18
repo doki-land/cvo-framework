@@ -1,0 +1,71 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.5.10/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 144,
+        "lineEnding": "lf"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "preset": "recommended",
+            "style": {
+                "noNonNullAssertion": "off"
+            },
+            "complexity": {
+                "noForEach": "off"
+            },
+            "suspicious": {
+                "noExplicitAny": "off"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "trailingCommas": "all"
+        }
+    },
+    "json": {
+        "formatter": {
+            "indentWidth": 4
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["*.ts", "*.tsx"],
+            "formatter": {
+                "indentWidth": 4
+            }
+        },
+        {
+            "includes": ["*.vue"],
+            "formatter": {
+                "indentWidth": 2
+            }
+        },
+        {
+            "includes": ["*.json", "*.jsonc", "*.json5"],
+            "formatter": {
+                "indentWidth": 4
+            }
+        },
+        {
+            "includes": ["*.yaml", "*.yml"],
+            "formatter": {
+                "indentWidth": 2
+            }
+        }
+    ],
+    "files": {
+        "ignoreUnknown": true,
+        "includes": ["**", "!**/dist", "!**/node_modules", "!**/.wrangler", "!**/pnpm-lock.yaml", "!**/*.vmz"]
+    }
+}
