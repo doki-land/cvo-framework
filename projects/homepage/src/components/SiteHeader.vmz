@@ -1,0 +1,120 @@
+<template>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="/" aria-label={homeAriaLabel}>
+        <span class="logo-mark">{brandShort}</span>
+        <span class="logo-divider" aria-hidden="true"></span>
+        <span class="logo-caption">{brandFull}</span>
+      </a>
+      <nav class="nav" aria-label={navPrimary}>
+        <a href="/">{navHome}</a>
+        <a href="#stack">{navStack}</a>
+      </nav>
+      <div class="header-aside">
+        <span class="header-status"><i aria-hidden="true"></i> edge backend</span>
+      </div>
+    </div>
+  </header>
+</template>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--cvo-border);
+  background: rgba(10, 14, 22, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--cvo-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logo-mark {
+  color: var(--cvo-accent);
+  letter-spacing: 0.08em;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 1rem;
+  background: var(--cvo-border);
+}
+
+.logo-caption {
+  color: var(--cvo-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: var(--cvo-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav a:hover {
+  color: var(--cvo-text);
+}
+
+.header-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cvo-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.header-status i {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--cvo-ok);
+  box-shadow: 0 0 0.5rem var(--cvo-ok);
+}
+</style>
+
+<script client>
+import { brandShort, brandFull, navHome, navStack, navPrimary, homeAriaLabel } from '#locales/common';
+
+export default class SiteHeader {
+  brandShort = '';
+  brandFull = '';
+  navHome = '';
+  navStack = '';
+  navPrimary = '';
+  homeAriaLabel = '';
+
+  onMount() {
+    this.brandShort = brandShort();
+    this.brandFull = brandFull();
+    this.navHome = navHome();
+    this.navStack = navStack();
+    this.navPrimary = navPrimary();
+    this.homeAriaLabel = homeAriaLabel();
+  }
+}
+</script>

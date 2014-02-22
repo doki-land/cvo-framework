@@ -1,0 +1,43 @@
+<template>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>{footerTagline}</p>
+      <p class="footer-meta">{footerMeta}</p>
+    </div>
+  </footer>
+</template>
+
+<style>
+.site-footer {
+  border-top: 1px solid var(--cvo-border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem 3rem;
+  color: var(--cvo-muted);
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer-meta {
+  opacity: 0.75;
+}
+</style>
+
+<script client>
+import { footerTagline, footerMeta } from '#locales/common';
+
+export default class SiteFooter {
+  footerTagline = '';
+  footerMeta = '';
+
+  onMount() {
+    this.footerTagline = footerTagline();
+    this.footerMeta = footerMeta();
+  }
+}
+</script>
