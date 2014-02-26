@@ -1,0 +1,31 @@
+{
+    "schema": "cvo.fixture.validate.v1",
+    "name": "missing-capability",
+    "contractId": "cvo.preview.v1",
+    "availableCapabilities": [],
+    "invocation": {
+        "schema": "cvo.invocation.v1",
+        "contractId": "cvo.preview.v1",
+        "operationId": "echo",
+        "transport": {
+            "schema": "cvo.transport.v1",
+            "kind": "in-process"
+        },
+        "input": {},
+        "capabilities": {
+            "schema": "cvo.capability_manifest.v1",
+            "requirements": [
+                {
+                    "schema": "cvo.capability.v1",
+                    "id": "cvo.logging"
+                }
+            ]
+        },
+        "traceContext": {
+            "schema": "cvo.trace_context.v1",
+            "requestId": "fixture-cap-missing-001"
+        }
+    },
+    "expectValid": false,
+    "expectDiagnosticCode": "cvo::contract::capability_missing"
+}

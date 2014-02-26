@@ -1,0 +1,11 @@
+{
+    "schema": "cvo.fixture.validate.v1",
+    "name": "invalid-envelope",
+    "invocation": {
+        "schema": "cvo.invocation.v0",
+        "contractId": "cvo.preview.v1",
+        "operationId": "health"
+    },
+    "expectValid": false,
+    "expectDiagnosticCode": "cvo::contract::invocation_invalid"
+}

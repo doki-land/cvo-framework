@@ -1,0 +1,31 @@
+{
+    "schema": "cvo.fixture.replay.v1",
+    "name": "health-in-process",
+    "contractId": "cvo.preview.v1",
+    "availableCapabilities": [],
+    "invocation": {
+        "schema": "cvo.invocation.v1",
+        "contractId": "cvo.preview.v1",
+        "operationId": "health",
+        "transport": {
+            "schema": "cvo.transport.v1",
+            "kind": "in-process"
+        },
+        "input": {},
+        "capabilities": {
+            "schema": "cvo.capability_manifest.v1",
+            "requirements": []
+        },
+        "traceContext": {
+            "schema": "cvo.trace_context.v1",
+            "requestId": "fixture-health-001"
+        }
+    },
+    "expect": {
+        "status": 200,
+        "body": {
+            "ok": true,
+            "service": "cvo.preview.v1"
+        }
+    }
+}

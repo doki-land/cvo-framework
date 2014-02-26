@@ -28,3 +28,34 @@ export {
     contractCatalog,
     validateInvocationShape,
 } from './contract.js';
+export type { CvoExecutionOptions, CvoExecutionOutcome, CvoExecutionStage, CvoExecutionTrace, CvoStageRecord } from './execution.js';
+export {
+    CVO_DIAG_DECODE_FAILED,
+    CVO_DIAG_RESULT_INVALID,
+    CVO_EXECUTION_STAGES,
+    checkCapabilities,
+    decodeInvocation,
+    encodeResult,
+    executeInvocation,
+    toPublicDiagnostic,
+    validateInvocationRuntime,
+} from './execution.js';
+export type {
+    CvoFixtureExpect,
+    CvoFixtureReplayMatch,
+    CvoFixtureReplayResult,
+    CvoReplayFixture,
+    CvoValidateFixture,
+} from './fixture.js';
+export {
+    CVO_FIXTURE_REPLAY_SCHEMA,
+    CVO_FIXTURE_VALIDATE_SCHEMA,
+    formatExecutionReport,
+    loadFixtureDocument,
+    matchFixtureExpect,
+    parseFixtureJson,
+    replayFixture,
+    runValidateFixture,
+    validateReplayFixtureShape,
+    validateValidateFixtureShape,
+} from './fixture.js';

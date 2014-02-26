@@ -1,0 +1,37 @@
+{
+    "schema": "cvo.fixture.replay.v1",
+    "name": "echo-in-process",
+    "contractId": "cvo.preview.v1",
+    "availableCapabilities": ["cvo.logging"],
+    "invocation": {
+        "schema": "cvo.invocation.v1",
+        "contractId": "cvo.preview.v1",
+        "operationId": "echo",
+        "transport": {
+            "schema": "cvo.transport.v1",
+            "kind": "in-process"
+        },
+        "input": {
+            "message": "hello"
+        },
+        "capabilities": {
+            "schema": "cvo.capability_manifest.v1",
+            "requirements": [
+                {
+                    "schema": "cvo.capability.v1",
+                    "id": "cvo.logging"
+                }
+            ]
+        },
+        "traceContext": {
+            "schema": "cvo.trace_context.v1",
+            "requestId": "fixture-echo-001"
+        }
+    },
+    "expect": {
+        "status": 200,
+        "body": {
+            "message": "hello"
+        }
+    }
+}

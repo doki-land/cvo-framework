@@ -1,0 +1,27 @@
+{
+    "schema": "cvo.fixture.validate.v1",
+    "name": "valid-invocation",
+    "contractId": "cvo.preview.v1",
+    "availableCapabilities": [],
+    "invocation": {
+        "schema": "cvo.invocation.v1",
+        "contractId": "cvo.preview.v1",
+        "operationId": "health",
+        "transport": {
+            "schema": "cvo.transport.v1",
+            "kind": "http-fetch",
+            "method": "POST",
+            "route": "/invoke"
+        },
+        "input": {},
+        "capabilities": {
+            "schema": "cvo.capability_manifest.v1",
+            "requirements": []
+        },
+        "traceContext": {
+            "schema": "cvo.trace_context.v1",
+            "requestId": "fixture-valid-001"
+        }
+    },
+    "expectValid": true
+}

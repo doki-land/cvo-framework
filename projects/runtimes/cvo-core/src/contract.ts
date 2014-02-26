@@ -108,7 +108,16 @@ export function contractCatalog(): CvoContractCatalog {
             { kind: 'trace_context', schema: CVO_TRACE_CONTEXT_SCHEMA },
         ],
         transportKinds: CVO_TRANSPORT_KINDS,
-        diagnostics: [CVO_DIAG_INVOCATION_INVALID, CVO_DIAG_CAPABILITY_MISSING, CVO_DIAG_TRANSPORT_UNSUPPORTED, CVO_DIAG_DEADLINE_EXCEEDED],
+        diagnostics: [
+            CVO_DIAG_INVOCATION_INVALID,
+            CVO_DIAG_CAPABILITY_MISSING,
+            CVO_DIAG_TRANSPORT_UNSUPPORTED,
+            CVO_DIAG_DEADLINE_EXCEEDED,
+            'cvo::contract::decode_failed',
+            'cvo::contract::result_invalid',
+            'cvo::contract::contract_mismatch',
+            'cvo::contract::handler_threw',
+        ],
     };
 }
 
