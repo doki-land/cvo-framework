@@ -18,3 +18,9 @@ See `@cvo/skills` → `references/vmz-server.md` for the full decision guide.
 ## Local execution default
 
 In-process handlers stay on the same host. Remote CVO HTTP/RPC is **opt-in** via capability requirements on the invocation envelope.
+
+## 0.0.1 preview hosts
+
+- `createInProcessTestHost` — deterministic fixture replay without HTTP
+- `createFetchHandler` / `createNodeFetchHandler` — Worker-style Fetch entry
+- `createPreviewTestHost` — built-in `health` / `echo` handlers for conformance fixtures
