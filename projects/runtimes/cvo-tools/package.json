@@ -23,7 +23,8 @@
     ],
     "scripts": {
         "build": "tsc -p tsconfig.json",
-        "typecheck": "tsc -p tsconfig.json --noEmit"
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "conformance": "pnpm run build && node bin/cvo.js validate --all && node bin/cvo.js replay --all"
     },
     "dependencies": {
         "@cvo/core": "workspace:*",
