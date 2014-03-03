@@ -20,7 +20,16 @@ projects/
     cvo-plugin-i18n/         @cvo/plugin-i18n
     cvo-plugin-i18n-fluent/  @cvo/plugin-i18n-fluent
     cvo-plugin-auth/         @cvo/plugin-auth
+    cvo-plugin-config/       @cvo/plugin-config
     cvo-plugin-logger/       @cvo/plugin-logger
+    cvo-plugin-notification/ @cvo/plugin-notification
+    cvo-plugin-openapi/      @cvo/plugin-openapi
+    cvo-plugin-security/     @cvo/plugin-security
+    cvo-plugin-socket/       @cvo/plugin-socket
+    cvo-plugin-sse/          @cvo/plugin-sse
+    cvo-plugin-storage/      @cvo/plugin-storage
+    cvo-plugin-task/         @cvo/plugin-task
+    cvo-plugin-validation/   @cvo/plugin-validation
     cvo-plugin-iris/         @cvo/plugin-iris
     cvo-plugin-prisma/       @cvo/plugin-prisma
     cvo-plugin-drizzle/      @cvo/plugin-drizzle
@@ -38,6 +47,8 @@ pnpm install
 pnpm build:runtimes
 pnpm typecheck
 pnpm lint
+pnpm conformance:preview
+pnpm cvo validate --all
 pnpm fmt:check
 pnpm cvo catalog
 pnpm homepage:dev

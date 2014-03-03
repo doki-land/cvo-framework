@@ -6,9 +6,10 @@
     "scripts": {
         "build": "pnpm build:runtimes && pnpm build:plugins",
         "build:runtimes": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo run build",
-        "build:plugins": "pnpm -r --filter @cvo/plugin --filter @cvo/plugin-i18n --filter @cvo/plugin-i18n-fluent --filter @cvo/plugin-auth --filter @cvo/plugin-logger --filter @cvo/plugin-iris --filter @cvo/plugin-prisma --filter @cvo/plugin-drizzle run build",
+        "build:plugins": "pnpm -r --filter @cvo/plugin --filter @cvo/plugin-* run build",
         "build:homepage": "pnpm --filter @cvo/homepage run build",
-        "typecheck": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo --filter @cvo/skills --filter @cvo/plugin --filter @cvo/plugin-i18n --filter @cvo/plugin-i18n-fluent --filter @cvo/plugin-auth --filter @cvo/plugin-logger --filter @cvo/plugin-iris --filter @cvo/plugin-prisma --filter @cvo/plugin-drizzle run typecheck && pnpm --filter @cvo/homepage run typecheck:worker",
+        "conformance:preview": "pnpm --filter @cvo/core --filter @cvo/server run build && pnpm --filter @cvo/core --filter @cvo/server run test && pnpm --filter @cvo/cvo run conformance",
+        "typecheck": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo --filter @cvo/skills --filter @cvo/plugin --filter @cvo/plugin-* run typecheck && pnpm --filter @cvo/homepage run typecheck:worker",
         "cvo": "node projects/runtimes/cvo-tools/bin/cvo.js",
         "homepage:dev": "pnpm --filter @cvo/homepage dev",
         "homepage:worker": "pnpm --filter @cvo/homepage worker:dev",
