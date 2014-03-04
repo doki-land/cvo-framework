@@ -1,0 +1,35 @@
+{
+    "name": "@cvo/plugin-security",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO security policy — CORS, CSP, rate limits, and response header manifests",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/plugin": "workspace:*"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "security",
+        "cors",
+        "csp",
+        "rate-limit"
+    ]
+}

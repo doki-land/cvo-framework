@@ -65,6 +65,15 @@ importers:
         specifier: workspace:*
         version: link:../cvo-plugin
 
+  projects/plugins/cvo-plugin-config:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
   projects/plugins/cvo-plugin-drizzle:
     dependencies:
       '@cvo/core':
@@ -113,7 +122,79 @@ importers:
         specifier: workspace:*
         version: link:../cvo-plugin
 
+  projects/plugins/cvo-plugin-notification:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-openapi:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
   projects/plugins/cvo-plugin-prisma:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-security:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-socket:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-sse:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-storage:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-task:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../../runtimes/cvo-core
+      '@cvo/plugin':
+        specifier: workspace:*
+        version: link:../cvo-plugin
+
+  projects/plugins/cvo-plugin-validation:
     dependencies:
       '@cvo/core':
         specifier: workspace:*

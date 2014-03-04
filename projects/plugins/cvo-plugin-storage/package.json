@@ -1,0 +1,35 @@
+{
+    "name": "@cvo/plugin-storage",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO object storage capability — R2, KV, filesystem, and memory transport manifests",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/plugin": "workspace:*"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "storage",
+        "r2",
+        "kv",
+        "blob"
+    ]
+}
