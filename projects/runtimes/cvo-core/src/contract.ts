@@ -106,6 +106,7 @@ export function contractCatalog(): CvoContractCatalog {
             { kind: 'capability_manifest', schema: CVO_CAPABILITY_MANIFEST_SCHEMA },
             { kind: 'transport', schema: CVO_TRANSPORT_SCHEMA },
             { kind: 'trace_context', schema: CVO_TRACE_CONTEXT_SCHEMA },
+            { kind: 'route_table', schema: 'cvo.route_table.v1' },
         ],
         transportKinds: CVO_TRANSPORT_KINDS,
         diagnostics: [
@@ -117,6 +118,11 @@ export function contractCatalog(): CvoContractCatalog {
             'cvo::contract::result_invalid',
             'cvo::contract::contract_mismatch',
             'cvo::contract::handler_threw',
+            'cvo::route::not_found',
+            'cvo::route::query_missing',
+            'cvo::route::body_content_type',
+            'cvo::route::body_invalid_json',
+            'cvo::route::aborted',
         ],
     };
 }

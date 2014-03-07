@@ -59,3 +59,19 @@ export {
     validateReplayFixtureShape,
     validateValidateFixtureShape,
 } from './fixture.js';
+export type {
+    CvoDecodedRouteRequest,
+    CvoHttpMethod,
+    CvoRouteDefinition,
+    CvoRouteMatch,
+    CvoRouteQueryParam,
+    CvoRouteTable,
+} from './route.js';
+export {
+    buildRouteInput,
+    CVO_ROUTE_TABLE_SCHEMA,
+    createRouteTable,
+    decodeRouteBody,
+    decodeRouteQuery,
+    matchRoute,
+} from './route.js';
