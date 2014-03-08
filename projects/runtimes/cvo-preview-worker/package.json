@@ -1,0 +1,20 @@
+{
+    "name": "@cvo/preview-worker",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO 0.0.2 preview Worker — static route table vertical slice",
+    "scripts": {
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/server": "workspace:*"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20250214.0",
+        "typescript": "^5.8.3",
+        "wrangler": "^4.14.0"
+    }
+}

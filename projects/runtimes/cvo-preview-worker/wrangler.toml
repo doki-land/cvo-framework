@@ -1,0 +1,13 @@
+name = "cvo-preview-worker"
+compatibility_date = "2024-11-01"
+main = "worker/index.ts"
+workers_dev = true
+
+[vars]
+CVO_CONTRACT_ID = "cvo.preview.v1"
+
+# Fake bindings for deterministic local preview (0.0.2)
+[[kv_namespaces]]
+binding = "PREVIEW_KV"
+id = "00000000000000000000000000000000"
+preview_id = "00000000000000000000000000000000"
