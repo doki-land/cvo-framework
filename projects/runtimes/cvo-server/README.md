@@ -19,8 +19,9 @@ See `@cvo/skills` → `references/vmz-server.md` for the full decision guide.
 
 In-process handlers stay on the same host. Remote CVO HTTP/RPC is **opt-in** via capability requirements on the invocation envelope.
 
-## 0.0.1 preview hosts
+## 0.0.2 preview Worker routes
 
-- `createInProcessTestHost` — deterministic fixture replay without HTTP
-- `createFetchHandler` / `createNodeFetchHandler` — Worker-style Fetch entry
-- `createPreviewTestHost` — built-in `health` / `echo` handlers for conformance fixtures
+- `createRouteFetchService` — static route table → decode → execution graph → HTTP response (Web APIs only)
+- `createPreviewRouteTable` / `createPreviewRouteHandlers` — `GET /health` and `GET /data/:id`
+- `@cvo/server/worker` — Worker-safe export (no Node built-ins)
+- `@cvo/preview-worker` — Wrangler dev preview with fake KV binding
