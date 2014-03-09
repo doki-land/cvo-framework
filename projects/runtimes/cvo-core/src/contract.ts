@@ -107,6 +107,7 @@ export function contractCatalog(): CvoContractCatalog {
             { kind: 'transport', schema: CVO_TRANSPORT_SCHEMA },
             { kind: 'trace_context', schema: CVO_TRACE_CONTEXT_SCHEMA },
             { kind: 'route_table', schema: 'cvo.route_table.v1' },
+            { kind: 'vmz_server_artifact', schema: 'vmz.server.artifact.v0' },
         ],
         transportKinds: CVO_TRANSPORT_KINDS,
         diagnostics: [
@@ -123,6 +124,9 @@ export function contractCatalog(): CvoContractCatalog {
             'cvo::route::body_content_type',
             'cvo::route::body_invalid_json',
             'cvo::route::aborted',
+            'cvo::server_artifact::not_object',
+            'cvo::server_artifact::schema_mismatch',
+            'cvo::server_artifact::secret_value_forbidden',
         ],
     };
 }

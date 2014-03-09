@@ -75,3 +75,25 @@ export {
     decodeRouteQuery,
     matchRoute,
 } from './route.js';
+export type {
+    CvoHostCapabilityDiagnostic,
+    CvoHostProfile,
+    VmzHttpContract,
+    VmzInternalCapability,
+    VmzPublicRoute,
+    VmzSecretRequirement,
+    VmzServerArtifact,
+    VmzServerArtifactDecision,
+    VmzServerArtifactEntry,
+} from './server-artifact.js';
+export {
+    VMZ_HTTP_CONTRACT_SCHEMA,
+    VMZ_SERVER_ARTIFACT_SCHEMA,
+    capabilityManifestForRoute,
+    diagnoseServerArtifactForHost,
+    parseVmzOperationId,
+    secretRequirementsFromArtifact,
+    serverArtifactDiagnostic,
+    validateServerArtifact,
+    vmzOperationId,
+} from './server-artifact.js';
