@@ -8,7 +8,17 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SERVER_SRC = path.join(ROOT, 'projects/runtimes/cvo-server/src');
 
-const WORKER_FILES = ['worker.ts', 'worker-routes.ts', 'http-response.ts', 'preview-routes.ts', 'host.ts', 'test-host.ts'];
+const WORKER_FILES = [
+    'worker.ts',
+    'worker-routes.ts',
+    'http-response.ts',
+    'preview-routes.ts',
+    'preview-server-artifact.ts',
+    'server-artifact-adapter.ts',
+    'server-artifact-host.ts',
+    'host.ts',
+    'test-host.ts',
+];
 
 const FORBIDDEN = [
     /from\s+['"]node:/,

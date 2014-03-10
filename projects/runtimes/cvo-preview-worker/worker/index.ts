@@ -1,15 +1,22 @@
-import { CVO_PREVIEW_CONTRACT_ID, createPreviewRouteHandlers, createPreviewRouteTable, createRouteFetchService } from '@cvo/server/worker';
+import {
+    createPreviewServerArtifact,
+    createPreviewServerArtifactHandlerMap,
+    createServerArtifactFetchService,
+} from '@cvo/server/worker';
 
 export interface Env {
     CVO_CONTRACT_ID?: string;
     PREVIEW_KV?: KVNamespace;
 }
 
-const contractId = CVO_PREVIEW_CONTRACT_ID;
-const routeTable = createPreviewRouteTable(contractId);
-const fetch = createRouteFetchService({
-    routeTable,
-    handlers: createPreviewRouteHandlers(contractId),
+const artifact = createPreviewServerArtifact();
+const handlers = createPreviewServerArtifactHandlerMap();
+
+const fetch = createServerArtifactFetchService({
+    artifact,
+    handlers,
+    hostProfile: 'test-host',
+    availableCapabilities: ['cvo.logging'],
     defaultTimeoutMs: 30_000,
 });
 

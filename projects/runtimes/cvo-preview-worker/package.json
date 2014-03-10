@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "type": "module",
-    "description": "CVO 0.0.2 preview Worker — static route table vertical slice",
+    "description": "CVO 0.0.3 preview Worker — VMZ ServerArtifact vertical slice",
     "scripts": {
         "dev": "wrangler dev",
         "deploy": "wrangler deploy",
