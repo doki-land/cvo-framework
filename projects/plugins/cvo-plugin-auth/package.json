@@ -1,0 +1,34 @@
+{
+    "name": "@cvo/plugin-auth",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO auth plugin — typed subject/claims/policy for edge Workers (Web Crypto / OIDC-ready)",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/plugin": "workspace:*"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "auth",
+        "oidc",
+        "jwt"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "name": "@cvo/plugin-i18n",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO i18n plugin — locale manifest, fallback chain, message catalog contract",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/plugin": "workspace:*"
+    },
+    "keywords": [
+        "cvo",
+        "plugin",
+        "i18n",
+        "locale"
+    ]
+}

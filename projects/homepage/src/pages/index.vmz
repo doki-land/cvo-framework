@@ -1,0 +1,192 @@
+<template>
+  <div class="site">
+    <SiteHeader />
+    <main class="cvo-main">
+      <section class="hero cvo-rail">
+        <div class="hero-copy">
+          <p class="kicker">{heroKicker}</p>
+          <h1>{heroTitleA}<br /><span>{heroTitleB}</span></h1>
+          <p class="lede">{heroLede}</p>
+          <div class="hero-actions">
+            <a href="#stack"><Button type="button" variant="primary">{heroCtaDocs}</Button></a>
+          </div>
+        </div>
+        <ApiStatus />
+      </section>
+
+      <section id="stack" class="stack cvo-rail">
+        <h2>{stackTitle}</h2>
+        <p class="stack-lede">{stackLede}</p>
+        <ul class="stack-list">
+          <li>{stackVmz}</li>
+          <li>{stackCvo}</li>
+          <li>{stackIris}</li>
+        </ul>
+      </section>
+    </main>
+    <SiteFooter />
+  </div>
+</template>
+
+<style>
+:global(:root) {
+  --cvo-bg: #0a0e16;
+  --cvo-text: #eef2ff;
+  --cvo-muted: #94a3b8;
+  --cvo-border: rgba(148, 163, 184, 0.18);
+  --cvo-accent: #38bdf8;
+  --cvo-ok: #34d399;
+  --cvo-warn: #fb7185;
+}
+
+:global(body) {
+  margin: 0;
+  background: radial-gradient(circle at 20% -10%, rgba(56, 189, 248, 0.12), transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(52, 211, 153, 0.08), transparent 35%), var(--cvo-bg);
+  color: var(--cvo-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+.cvo-rail {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.cvo-main {
+  padding: 2rem 0 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+.kicker {
+  color: var(--cvo-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0.4rem 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.hero h1 span {
+  color: #cbd5e1;
+}
+
+.lede {
+  color: var(--cvo-muted);
+  max-width: 38rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 1.25rem;
+}
+
+.stack {
+  padding-bottom: 2rem;
+}
+
+.stack h2 {
+  margin: 0 0 0.5rem;
+}
+
+.stack-lede {
+  color: var(--cvo-muted);
+  max-width: 42rem;
+}
+
+.stack-list {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script client>
+import {
+  brandShort,
+  brandFull,
+  navHome,
+  navStack,
+  navPrimary,
+  homeAriaLabel,
+  heroKicker,
+  heroTitleA,
+  heroTitleB,
+  heroLede,
+  heroCtaDocs,
+  stackTitle,
+  stackLede,
+  stackVmz,
+  stackCvo,
+  stackIris,
+  statusLabel,
+  footerTagline,
+  footerMeta,
+} from '#locales/common';
+
+export default class IndexPage {
+  brandShort = '';
+  brandFull = '';
+  navHome = '';
+  navStack = '';
+  navPrimary = '';
+  homeAriaLabel = '';
+  heroKicker = '';
+  heroTitleA = '';
+  heroTitleB = '';
+  heroLede = '';
+  heroCtaDocs = '';
+  stackTitle = '';
+  stackLede = '';
+  stackVmz = '';
+  stackCvo = '';
+  stackIris = '';
+  statusLabel = '';
+  footerTagline = '';
+  footerMeta = '';
+
+  onMount() {
+    this.brandShort = brandShort();
+    this.brandFull = brandFull();
+    this.navHome = navHome();
+    this.navStack = navStack();
+    this.navPrimary = navPrimary();
+    this.homeAriaLabel = homeAriaLabel();
+    this.heroKicker = heroKicker();
+    this.heroTitleA = heroTitleA();
+    this.heroTitleB = heroTitleB();
+    this.heroLede = heroLede();
+    this.heroCtaDocs = heroCtaDocs();
+    this.stackTitle = stackTitle();
+    this.stackLede = stackLede();
+    this.stackVmz = stackVmz();
+    this.stackCvo = stackCvo();
+    this.stackIris = stackIris();
+    this.statusLabel = statusLabel();
+    this.footerTagline = footerTagline();
+    this.footerMeta = footerMeta();
+    if (typeof document !== 'undefined') {
+      document.title = `${brandShort()} — ${brandFull()}`;
+    }
+  }
+}
+</script>

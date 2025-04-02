@@ -1,0 +1,104 @@
+<template>
+  <section class="api-status" aria-live="polite">
+    <div class="api-status__head">
+      <span class="api-status__label">{statusLabel}</span>
+      <span class="api-status__pill" data-state={state}>{stateLabel}</span>
+    </div>
+    <pre class="api-status__body">{bodyText}</pre>
+  </section>
+</template>
+
+<style>
+.api-status {
+  border: 1px solid var(--cvo-border);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.api-status__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--cvo-border);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.api-status__label {
+  color: var(--cvo-muted);
+}
+
+.api-status__pill {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--cvo-border);
+  color: var(--cvo-muted);
+}
+
+.api-status__pill[data-state='ok'] {
+  color: var(--cvo-ok);
+  border-color: color-mix(in srgb, var(--cvo-ok) 40%, transparent);
+}
+
+.api-status__pill[data-state='error'] {
+  color: var(--cvo-warn);
+  border-color: color-mix(in srgb, var(--cvo-warn) 40%, transparent);
+}
+
+.api-status__body {
+  margin: 0;
+  padding: 0.85rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  overflow: auto;
+}
+</style>
+
+<script client>
+import { statusLabel as statusLabelKey } from '#locales/common';
+
+export default class ApiStatus {
+  statusLabel = '';
+  state: 'idle' | 'ok' | 'error' = 'idle';
+  stateLabel = '…';
+  bodyText = '{}';
+
+  async onMount() {
+    this.statusLabel = statusLabelKey();
+    this.stateLabel = '…';
+    try {
+      const response = await fetch('/api/health');
+      const body = await response.json();
+      this.state = response.ok ? 'ok' : 'error';
+      this.stateLabel = response.ok ? 'OK' : 'ERR';
+      this.bodyText = JSON.stringify(body, null, 2);
+    } catch (error) {
+      this.state = 'error';
+      this.stateLabel = 'ERR';
+      this.bodyText = JSON.stringify({ error: String(error) }, null, 2);
+    }
+  }
+}
+</script>
+
+<script server>
+import { contractCatalog } from '@cvo/core';
+import { Get } from 'vmz:http';
+
+export default class ApiStatusServer {
+  @Get('/api/health')
+  async health() {
+    return {
+      ok: true,
+      protocol: contractCatalog().protocol,
+      contractId: 'cvo.homepage.v1',
+      surface: 'vmz-script-server',
+    };
+  }
+}
+</script>

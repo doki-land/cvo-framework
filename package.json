@@ -1,11 +1,24 @@
 {
+    "name": "cvo-framework",
     "private": true,
+    "type": "module",
+    "packageManager": "pnpm@9.15.0",
     "scripts": {
-        "doc": "cargo doc --no-deps --all-features",
-        "test": "cargo test --release",
-        "fmt": "cargo fmt --all",
-        "p": "git push && git push --tags --prune",
-        "reset": "git reset Head~ --soft",
-        "u": "cargo upgrade --workspace"
+        "build": "pnpm build:runtimes && pnpm build:plugins",
+        "build:runtimes": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo run build",
+        "build:plugins": "pnpm -r --filter @cvo/plugin --filter @cvo/plugin-i18n --filter @cvo/plugin-i18n-fluent --filter @cvo/plugin-auth --filter @cvo/plugin-logger --filter @cvo/plugin-iris --filter @cvo/plugin-prisma --filter @cvo/plugin-drizzle run build",
+        "build:homepage": "pnpm --filter @cvo/homepage run build",
+        "typecheck": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo --filter @cvo/skills --filter @cvo/plugin --filter @cvo/plugin-i18n --filter @cvo/plugin-i18n-fluent --filter @cvo/plugin-auth --filter @cvo/plugin-logger --filter @cvo/plugin-iris --filter @cvo/plugin-prisma --filter @cvo/plugin-drizzle run typecheck && pnpm --filter @cvo/homepage run typecheck:worker",
+        "cvo": "node projects/runtimes/cvo-tools/bin/cvo.js",
+        "homepage:dev": "pnpm --filter @cvo/homepage dev",
+        "homepage:worker": "pnpm --filter @cvo/homepage worker:dev",
+        "lint": "biome check .",
+        "fmt": "biome format --write .",
+        "fmt:check": "biome format ."
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.7",
+        "@types/node": "^22.15.0",
+        "typescript": "^5.8.3"
     }
 }
