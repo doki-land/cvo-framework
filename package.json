@@ -14,7 +14,10 @@
         "homepage:worker": "pnpm --filter @cvo/homepage worker:dev",
         "lint": "biome check .",
         "fmt": "biome format --write .",
-        "fmt:check": "biome format ."
+        "fmt:check": "biome format .",
+        "placeholder": "node scripts/ci/publish-placeholder.mjs",
+        "placeholder:publish": "node scripts/ci/publish-placeholder.mjs publish",
+        "placeholder:trust": "node scripts/ci/publish-placeholder.mjs trust"
     },
     "devDependencies": {
         "@biomejs/biome": "^2.5.7",
