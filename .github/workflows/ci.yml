@@ -34,5 +34,13 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Preview conformance (0.0.1–0.0.2)
+      - name: Preview conformance (0.0.1–0.0.3)
         run: pnpm conformance:preview
+
+      - name: Homepage VMZ build
+        run: pnpm --filter @cvo/homepage run build
+
+      - name: Wrangler dry-run
+        run: |
+          pnpm --filter @cvo/homepage run worker:dry-run
+          pnpm --filter @cvo/preview-worker run dry-run
