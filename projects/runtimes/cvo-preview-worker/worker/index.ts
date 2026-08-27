@@ -1,8 +1,4 @@
-import {
-    createPreviewServerArtifact,
-    createPreviewServerArtifactHandlerMap,
-    createServerArtifactFetchService,
-} from '@cvo/server/worker';
+import { createPreviewServerArtifact, createPreviewServerArtifactHandlerMap, createServerArtifactFetchService } from '@cvo/server/worker';
 
 export interface Env {
     CVO_CONTRACT_ID?: string;

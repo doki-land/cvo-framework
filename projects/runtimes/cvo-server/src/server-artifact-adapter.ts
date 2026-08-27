@@ -11,9 +11,9 @@ import {
     createRouteTable,
     parseVmzOperationId,
     secretRequirementsFromArtifact,
-    vmzOperationId,
     type VmzPublicRoute,
     type VmzServerArtifact,
+    vmzOperationId,
 } from '@cvo/core';
 import type { CvoRequestHandler } from './host.js';
 import { httpFetchTransport } from './test-host.js';

@@ -87,13 +87,13 @@ export type {
     VmzServerArtifactEntry,
 } from './server-artifact.js';
 export {
-    VMZ_HTTP_CONTRACT_SCHEMA,
-    VMZ_SERVER_ARTIFACT_SCHEMA,
     capabilityManifestForRoute,
     diagnoseServerArtifactForHost,
     parseVmzOperationId,
     secretRequirementsFromArtifact,
     serverArtifactDiagnostic,
+    VMZ_HTTP_CONTRACT_SCHEMA,
+    VMZ_SERVER_ARTIFACT_SCHEMA,
     validateServerArtifact,
     vmzOperationId,
 } from './server-artifact.js';

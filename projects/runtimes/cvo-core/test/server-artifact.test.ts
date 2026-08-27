@@ -3,12 +3,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import {
-    diagnoseServerArtifactForHost,
-    validateServerArtifact,
-    vmzOperationId,
-    VMZ_SERVER_ARTIFACT_SCHEMA,
-} from '@cvo/core';
+import { diagnoseServerArtifactForHost, VMZ_SERVER_ARTIFACT_SCHEMA, validateServerArtifact, vmzOperationId } from '@cvo/core';
 
 const fixtureDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../specifications/fixtures/server-artifact');
 

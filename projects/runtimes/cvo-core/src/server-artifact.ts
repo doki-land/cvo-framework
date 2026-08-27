@@ -1,4 +1,11 @@
-import { CVO_CAPABILITY_MANIFEST_SCHEMA, CVO_CAPABILITY_SCHEMA, CVO_DIAGNOSTIC_SCHEMA, type CvoCapabilityManifest, type CvoCapabilityRequirement, type CvoDiagnostic } from './contract.js';
+import {
+    CVO_CAPABILITY_MANIFEST_SCHEMA,
+    CVO_CAPABILITY_SCHEMA,
+    CVO_DIAGNOSTIC_SCHEMA,
+    type CvoCapabilityManifest,
+    type CvoCapabilityRequirement,
+    type CvoDiagnostic,
+} from './contract.js';
 
 export const VMZ_SERVER_ARTIFACT_SCHEMA = 'vmz.server.artifact.v0';
 export const VMZ_HTTP_CONTRACT_SCHEMA = 'vmz.http.contract.v0';

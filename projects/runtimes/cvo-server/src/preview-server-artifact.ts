@@ -1,12 +1,12 @@
 import { VMZ_HTTP_CONTRACT_SCHEMA, VMZ_SERVER_ARTIFACT_SCHEMA, type VmzServerArtifact, vmzOperationId } from '@cvo/core';
-import { CVO_PREVIEW_CONTRACT_ID } from './test-host.js';
 import { createPreviewRouteHandlers } from './preview-routes.js';
+import { CVO_PREVIEW_CONTRACT_ID } from './test-host.js';
 
 /** Minimal VMZ ServerArtifact matching preview health + data routes (0.0.3 smoke). */
 export function createPreviewServerArtifact(contractId = CVO_PREVIEW_CONTRACT_ID): VmzServerArtifact {
     return {
         schema: VMZ_SERVER_ARTIFACT_SCHEMA,
-        profileId: 'cvo.preview.server-host',
+        profileId: `${contractId}.server-host`,
         assembly: 'server-host',
         selectedRuntime: 'worker',
         entry: {
@@ -59,7 +59,9 @@ export function createPreviewServerArtifact(contractId = CVO_PREVIEW_CONTRACT_ID
 }
 
 /** Handler map keyed by VMZ operation ids for preview routes. */
-export function createPreviewServerArtifactHandlerMap(contractId = CVO_PREVIEW_CONTRACT_ID): Readonly<Record<string, ReturnType<typeof createPreviewRouteHandlers>[string]>> {
+export function createPreviewServerArtifactHandlerMap(
+    contractId = CVO_PREVIEW_CONTRACT_ID,
+): Readonly<Record<string, ReturnType<typeof createPreviewRouteHandlers>[string]>> {
     const handlers = createPreviewRouteHandlers(contractId);
     return {
         [vmzOperationId('#server/preview/Health', 'health')]: handlers.health!,

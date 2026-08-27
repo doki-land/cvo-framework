@@ -1,11 +1,5 @@
-import {
-    diagnoseServerArtifactForHost,
-    type CvoHostProfile,
-    validateServerArtifact,
-    type VmzServerArtifact,
-} from '@cvo/core';
+import { type CvoHostProfile, diagnoseServerArtifactForHost, type VmzServerArtifact, validateServerArtifact } from '@cvo/core';
 import type { CvoRequestHandler } from './host.js';
-import { createRouteFetchService, type CvoRouteFetchServiceOptions } from './worker-routes.js';
 import {
     CVO_VMZ_SERVER_ARTIFACT_CONTRACT_ID,
     handlersFromOperationMap,
@@ -14,6 +8,7 @@ import {
     publicRouteCapabilityIds,
     serverArtifactToRouteTable,
 } from './server-artifact-adapter.js';
+import { type CvoRouteFetchServiceOptions, createRouteFetchService } from './worker-routes.js';
 
 export interface CvoServerArtifactHostOptions {
     readonly artifact: VmzServerArtifact;

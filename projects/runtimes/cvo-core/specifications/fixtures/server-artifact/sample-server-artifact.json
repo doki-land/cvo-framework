@@ -1,6 +1,6 @@
 {
     "schema": "vmz.server.artifact.v0",
-    "profileId": "cvo.preview.server-host",
+    "profileId": "cvo.preview.v1.server-host",
     "assembly": "server-host",
     "selectedRuntime": "worker",
     "entry": {
