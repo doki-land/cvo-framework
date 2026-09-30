@@ -22,4 +22,5 @@ dist/
 # npm placeholder / trust (local only)
 .placeholder-npm-cache.json
 scripts/.placeholder-npm-cache.json
+.cache/npm-placeholder.json
 .env.placeholder.local
