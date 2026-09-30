@@ -27,6 +27,8 @@ export {
     publicRouteCapabilityIds,
     serverArtifactToRouteTable,
 } from './server-artifact-adapter.js';
+export type { CvoServerModuleNamespace, CvoServerModuleResolver } from './server-artifact-modules.js';
+export { createServerArtifactModuleHandlers } from './server-artifact-modules.js';
 export type { CvoServerArtifactHostDiagnostics, CvoServerArtifactHostOptions } from './server-artifact-host.js';
 export {
     createServerArtifactFetchService,
@@ -44,5 +46,5 @@ export {
     httpFetchTransport,
 } from './test-host.js';
 
-export type { CvoRouteFetchServiceOptions } from './worker-routes.js';
+export type { CvoHttpBodyMode, CvoRouteFetchServiceOptions } from './worker-routes.js';
 export { createRouteFetchService, invokeWithAbort } from './worker-routes.js';

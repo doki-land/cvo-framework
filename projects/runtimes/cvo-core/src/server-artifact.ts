@@ -248,7 +248,7 @@ export function diagnoseServerArtifactForHost(artifact: VmzServerArtifact, profi
     }
 
     if (profile === 'server-host') {
-        if (assembly !== 'server-host' && assembly !== 'web-ssr') {
+        if (assembly !== 'server-host' && assembly !== 'cdn+server') {
             notes.push(`assembly=${assembly} may not emit live server routes`);
         }
         if (runtime === 'node' || runtime === 'worker') {

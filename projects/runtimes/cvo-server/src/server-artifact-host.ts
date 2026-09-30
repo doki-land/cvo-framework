@@ -17,6 +17,8 @@ export interface CvoServerArtifactHostOptions {
     readonly availableCapabilities?: readonly string[];
     readonly defaultTimeoutMs?: number;
     readonly hostProfile?: CvoHostProfile;
+    /** Default `cvo-envelope`. Use `vmz-json` for script-server HTTP parity. */
+    readonly httpBodyMode?: CvoRouteFetchServiceOptions['httpBodyMode'];
 }
 
 export interface CvoServerArtifactHostDiagnostics {
@@ -74,6 +76,7 @@ export function createServerArtifactFetchService(options: CvoServerArtifactHostO
         handlers,
         availableCapabilities: options.availableCapabilities ?? required,
         defaultTimeoutMs: options.defaultTimeoutMs,
+        httpBodyMode: options.httpBodyMode,
     };
 
     return createRouteFetchService(routeOptions);

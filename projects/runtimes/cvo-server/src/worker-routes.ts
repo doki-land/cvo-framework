@@ -20,11 +20,19 @@ import type { CvoRequestHandler } from './host.js';
 import { errorHttpResponse, resultToHttpResponse } from './http-response.js';
 import { httpFetchTransport } from './test-host.js';
 
+/** How successful CVO results are encoded as HTTP JSON. */
+export type CvoHttpBodyMode =
+    /** CVO envelope `{ schema, status, body, diagnostic? }` (default). */
+    | 'cvo-envelope'
+    /** VMZ script-server parity: response JSON is `result.body` only. */
+    | 'vmz-json';
+
 export interface CvoRouteFetchServiceOptions {
     readonly routeTable: CvoRouteTable;
     readonly handlers: Readonly<Record<string, CvoRequestHandler>>;
     readonly availableCapabilities?: readonly string[];
     readonly defaultTimeoutMs?: number;
+    readonly httpBodyMode?: CvoHttpBodyMode;
 }
 
 function notFoundDiagnostic(pathname: string, method: string): CvoResult {
@@ -130,14 +138,29 @@ export async function invokeWithAbort<T>(
  * Worker-safe Fetch service: static route table -> decode -> execution graph -> HTTP response.
  * Uses Web Request/Response/Headers only.
  */
+function encodeRouteResult(result: CvoResult, mode: CvoHttpBodyMode): Response {
+    if (mode === 'vmz-json' && result.status >= 200 && result.status < 300 && !result.diagnostic) {
+        if (result.headers?.location) {
+            return resultToHttpResponse(result);
+        }
+        const headers = new Headers(result.headers);
+        if (!headers.has('content-type')) {
+            headers.set('content-type', 'application/json; charset=utf-8');
+        }
+        return Response.json(result.body ?? null, { status: result.status, headers });
+    }
+    return resultToHttpResponse(result);
+}
+
 export function createRouteFetchService(options: CvoRouteFetchServiceOptions): (request: Request) => Promise<Response> {
     const timeoutMs = options.defaultTimeoutMs ?? 30_000;
+    const httpBodyMode = options.httpBodyMode ?? 'cvo-envelope';
 
     return async (request) => {
         const url = new URL(request.url);
         const matched = matchRoute(options.routeTable, request.method, url.pathname);
         if (!matched) {
-            return resultToHttpResponse(notFoundDiagnostic(url.pathname, request.method));
+            return encodeRouteResult(notFoundDiagnostic(url.pathname, request.method), httpBodyMode);
         }
 
         const queryDecoded = decodeRouteQuery(url.searchParams, matched.route);
@@ -154,18 +177,21 @@ export function createRouteFetchService(options: CvoRouteFetchServiceOptions): (
 
         const handler = options.handlers[matched.route.operationId];
         if (!handler) {
-            return resultToHttpResponse({
-                schema: CVO_RESULT_SCHEMA,
-                status: 404,
-                diagnostic: {
-                    schema: CVO_DIAGNOSTIC_SCHEMA,
-                    code: 'cvo::server::operation_not_found',
-                    messageKey: 'cvo.server.operation_not_found',
-                    severity: 'error',
-                    args: { operationId: matched.route.operationId },
-                    requestId: invocation.traceContext.requestId,
+            return encodeRouteResult(
+                {
+                    schema: CVO_RESULT_SCHEMA,
+                    status: 404,
+                    diagnostic: {
+                        schema: CVO_DIAGNOSTIC_SCHEMA,
+                        code: 'cvo::server::operation_not_found',
+                        messageKey: 'cvo.server.operation_not_found',
+                        severity: 'error',
+                        args: { operationId: matched.route.operationId },
+                        requestId: invocation.traceContext.requestId,
+                    },
                 },
-            });
+                httpBodyMode,
+            );
         }
 
         try {
@@ -190,7 +216,7 @@ export function createRouteFetchService(options: CvoRouteFetchServiceOptions): (
                 { signal: request.signal, timeoutMs },
             );
 
-            return resultToHttpResponse(outcome.result);
+            return encodeRouteResult(outcome.result, httpBodyMode);
         } catch (error) {
             const aborted = error instanceof Error && (error.message === 'timeout' || error.message === 'aborted');
             const diagnostic: CvoDiagnostic = {
