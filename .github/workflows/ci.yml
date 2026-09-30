@@ -37,10 +37,11 @@ jobs:
       - name: Preview conformance (0.0.1–0.0.3)
         run: pnpm conformance:preview
 
-      - name: Homepage VMZ build
-        run: pnpm --filter @cvo/homepage run build
+      - name: Homepage client (Pages static)
+        run: pnpm home:client
 
-      - name: Wrangler dry-run
-        run: |
-          pnpm --filter @cvo/homepage run worker:dry-run
-          pnpm --filter @cvo/preview-worker run dry-run
+      - name: Homepage server (ServerArtifact → CVO host)
+        run: pnpm home:server
+
+      - name: Wrangler dry-run (homepage-api)
+        run: pnpm --filter @cvo/homepage-api run dry-run
