@@ -1,0 +1,10 @@
+# Cloudflare Workers Builds — CVO API host only (no static assets).
+# Pages: build `pnpm home:client`, output `projects/homepage/dist/cdn`
+# Worker: build `pnpm home:server`, deploy `npx wrangler deploy`
+name = "cvo-homepage-api"
+compatibility_date = "2024-11-01"
+main = "projects/homepage-api/worker/index.ts"
+workers_dev = true
+
+[vars]
+CVO_CONTRACT_ID = "cvo.homepage.v1"

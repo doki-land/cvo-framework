@@ -16,6 +16,7 @@ const WORKER_FILES = [
     'preview-server-artifact.ts',
     'server-artifact-adapter.ts',
     'server-artifact-host.ts',
+    'server-artifact-modules.ts',
     'host.ts',
     'test-host.ts',
 ];

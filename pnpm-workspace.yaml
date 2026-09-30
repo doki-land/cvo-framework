@@ -3,3 +3,4 @@ packages:
   - 'projects/plugins/*'
   - 'projects/examples/*'
   - 'projects/homepage'
+  - 'projects/homepage-api'

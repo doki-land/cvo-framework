@@ -2,32 +2,28 @@
     "private": true,
     "name": "@cvo/homepage",
     "version": "0.0.0",
-    "description": "CVO official site — VMZ frontend + CVO Worker backend + Cloudflare Pages",
+    "description": "CVO official site — VMZ static frontend (Cloudflare Pages)",
     "type": "module",
     "license": "MPL-2.0",
     "scripts": {
         "predev": "pnpm --filter @cvo/core --filter @cvo/server run build",
         "dev": "vmz dev . --out-dir dist/browser --target browser",
-        "prebuild": "pnpm --filter @cvo/core --filter @cvo/server run build",
-        "build": "vmz check . && vmz build . --release --profile static --out-dir dist/cdn --target browser",
+        "prebuild:client": "pnpm --filter @cvo/core --filter @cvo/server run build",
+        "build:client": "vmz check . && vmz build . --release --profile static --out-dir dist/cdn --target browser",
+        "prebuild:server": "pnpm --filter @cvo/core --filter @cvo/server run build",
+        "build:server": "vmz check . && vmz build . --release --profile edge --out-dir dist/server --target browser",
+        "build": "pnpm run build:client",
         "build:browser": "vmz build . --release --out-dir dist/browser --target browser",
         "check": "vmz check .",
-        "serve": "vmz serve . --out-dir dist/browser",
-        "typecheck:worker": "tsc -p tsconfig.worker.json --noEmit",
-        "worker:dev": "wrangler dev",
-        "worker:deploy": "wrangler deploy",
-        "worker:dry-run": "wrangler deploy --dry-run"
+        "serve": "vmz serve . --out-dir dist/browser"
     },
     "dependencies": {
         "@cvo/core": "workspace:*",
-        "@cvo/server": "workspace:*",
         "@vmz/core": "0.1.10",
         "@vmz/ui": "0.1.10"
     },
     "devDependencies": {
-        "@cloudflare/workers-types": "^4.20250317.0",
         "@vmz/vmz": "0.1.10",
-        "typescript": "^5.8.3",
-        "wrangler": "^4.14.0"
+        "typescript": "^5.8.3"
     }
 }

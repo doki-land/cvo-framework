@@ -7,13 +7,13 @@
         "build": "pnpm build:runtimes && pnpm build:plugins",
         "build:runtimes": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo run build",
         "build:plugins": "pnpm -r --filter @cvo/plugin --filter @cvo/plugin-* run build",
-        "build:homepage": "pnpm --filter @cvo/homepage run build",
+        "home:client": "pnpm --filter @cvo/homepage run build:client",
+        "home:server": "pnpm --filter @cvo/core --filter @cvo/server run build && pnpm --filter @cvo/homepage run build:server && pnpm --filter @cvo/homepage-api run prepare",
         "conformance:preview": "pnpm --filter @cvo/core --filter @cvo/server run build && pnpm --filter @cvo/core --filter @cvo/server run test && pnpm --filter @cvo/cvo run conformance && node scripts/ci/check-worker-imports.mjs",
         "preview-worker:dev": "pnpm --filter @cvo/preview-worker dev",
-        "typecheck": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo --filter @cvo/skills --filter @cvo/plugin --filter @cvo/plugin-* run typecheck && pnpm --filter @cvo/homepage run typecheck:worker",
+        "typecheck": "pnpm -r --filter @cvo/core --filter @cvo/server --filter @cvo/cvo --filter @cvo/skills --filter @cvo/plugin --filter @cvo/plugin-* run typecheck",
         "cvo": "node projects/runtimes/cvo-tools/bin/cvo.js",
         "homepage:dev": "pnpm --filter @cvo/homepage dev",
-        "homepage:worker": "pnpm --filter @cvo/homepage worker:dev",
         "lint": "biome check .",
         "fmt": "biome format --write .",
         "fmt:check": "biome format .",
@@ -25,6 +25,7 @@
         "@doki-land/nifty": "^0.0.12",
         "@biomejs/biome": "^2.5.7",
         "@types/node": "^22.15.0",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "wrangler": "^4.14.0"
     }
 }

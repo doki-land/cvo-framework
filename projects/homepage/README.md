@@ -1,42 +1,39 @@
 # `@cvo/homepage`
 
-CVO 官方站点 — **VMZ** 前端 + **CVO Worker** 后端 + **Cloudflare Pages/Workers** 部署示例。
+CVO 官方站点前端 — **VMZ** 全栈作者面；生产静态由 **Cloudflare Pages** 交付。
+
+后端不是手写 Worker 路由：`<script server>` 经 `vmz build --profile edge` 产出
+`ServerArtifact` + `#server` 模块，由 `@cvo/homepage-api`（CVO host）加载执行。
 
 ## 结构
 
 ```text
-src/              VMZ 页面与组件
-worker/           Cloudflare Worker（/api/* + 静态 assets）
-wrangler.toml     Cloudflare 配置
-dist/cdn/         VMZ static 构建产物（Wrangler assets）
-dist/browser/     本地 dev/serve 输出
+src/                 VMZ 页面与组件（含 <script server>）
+vmz.config.ts        static（Pages）+ edge（ServerArtifact）
+dist/cdn/            home:client 产物 → Pages
+dist/server/         home:server 产物 → CVO API Worker 输入
 ```
 
 ## 开发
 
 ```bash
-# 仓库根目录
-pnpm install
-pnpm build
-
-# VMZ 本地 dev（含 script server /api/health）
-pnpm --filter @cvo/homepage dev
-
-# Worker 本地预览（需先 build 出 dist/cdn）
-pnpm --filter @cvo/homepage build
-pnpm --filter @cvo/homepage worker:dev
+# 仓库根
+pnpm home:client          # Pages 静态
+pnpm home:server          # emit artifact + prepare CVO Worker
+pnpm homepage:dev         # VMZ 本地 dev（script server 本机执行）
 ```
 
-## 部署 Cloudflare
+## Cloudflare
 
-```bash
-pnpm --filter @cvo/homepage build
-pnpm --filter @cvo/homepage worker:deploy
-```
+| 项目 | 构建 | 部署 |
+|------|------|------|
+| Pages | `pnpm home:client` | 输出 `projects/homepage/dist/cdn` |
+| Worker | `pnpm home:server` | `npx wrangler deploy`（根 `wrangler.toml` → homepage-api） |
 
-Wrangler 将 `dist/cdn` 作为静态 assets，`worker/index.ts` 处理 `/api/health`、`/api/catalog`、`/api/invoke`。
+同域时把 `/api/*` 指到 Worker；跨域时 Worker 已允许 CORS。
 
 ## 边界
 
-- VMZ `script server` 在 dev 中提供 `/api/health`（本地宿主）
-- 生产环境由 Worker 提供同名路由；**不会**把每个 script server 调用隐式代理到 CVO HTTP
+- 作者只写 VMZ；生产 API 真相源是 `dist/server/_vmz/server-artifact.json`
+- CVO 不绕过 VMZ `createRenderHost`；不隐式把每个 script server 调用变成 HTTP hop
+- `@cvo/preview-worker` 仍是人造 fixture 符合性切片，不是 homepage

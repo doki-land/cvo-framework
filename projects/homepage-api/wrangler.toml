@@ -1,0 +1,7 @@
+name = "cvo-homepage-api"
+compatibility_date = "2024-11-01"
+main = "worker/index.ts"
+workers_dev = true
+
+[vars]
+CVO_CONTRACT_ID = "cvo.homepage.v1"

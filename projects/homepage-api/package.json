@@ -1,0 +1,24 @@
+{
+    "name": "@cvo/homepage-api",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "CVO host for homepage VMZ ServerArtifact — no hand-written /api routes",
+    "scripts": {
+        "prepare:artifact": "node scripts/prepare-artifact.mjs",
+        "prepare": "pnpm run prepare:artifact",
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "dry-run": "wrangler deploy --dry-run",
+        "typecheck": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@cvo/core": "workspace:*",
+        "@cvo/server": "workspace:*"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20250214.0",
+        "typescript": "^5.8.3",
+        "wrangler": "^4.14.0"
+    }
+}
