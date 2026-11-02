@@ -19,11 +19,13 @@
     },
     "dependencies": {
         "@cvo/core": "workspace:*",
-        "@vmz/core": "0.1.10",
-        "@vmz/ui": "0.1.10"
+        "@vmz/core": "0.3.12",
+        "@vmz/ui": "0.3.12",
+        "@vmz/ui-icons": "0.3.12"
     },
     "devDependencies": {
-        "@vmz/vmz": "0.1.10",
+        "@vmz/plugin": "0.3.12",
+        "@vmz/vmz": "0.3.12",
         "typescript": "^5.8.3"
     }
 }

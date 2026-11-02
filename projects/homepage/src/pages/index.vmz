@@ -4,23 +4,23 @@
     <main class="cvo-main">
       <section class="hero cvo-rail">
         <div class="hero-copy">
-          <p class="kicker">{heroKicker}</p>
-          <h1>{heroTitleA}<br /><span>{heroTitleB}</span></h1>
-          <p class="lede">{heroLede}</p>
+          <p class="kicker">{{ heroKicker }}</p>
+          <h1>{{ heroTitleA }}<br /><span>{{ heroTitleB }}</span></h1>
+          <p class="lede">{{ heroLede }}</p>
           <div class="hero-actions">
-            <a href="#stack"><Button type="button" variant="primary">{heroCtaDocs}</Button></a>
+            <a href="#stack"><Button type="button" variant="primary">{{ heroCtaDocs }}</Button></a>
           </div>
         </div>
         <ApiStatus />
       </section>
 
       <section id="stack" class="stack cvo-rail">
-        <h2>{stackTitle}</h2>
-        <p class="stack-lede">{stackLede}</p>
+        <h2>{{ stackTitle }}</h2>
+        <p class="stack-lede">{{ stackLede }}</p>
         <ul class="stack-list">
-          <li>{stackVmz}</li>
-          <li>{stackCvo}</li>
-          <li>{stackIris}</li>
+          <li>{{ stackVmz }}</li>
+          <li>{{ stackCvo }}</li>
+          <li>{{ stackIris }}</li>
         </ul>
       </section>
     </main>
@@ -29,7 +29,7 @@
 </template>
 
 <style>
-:global(:root) {
+:root {
   --cvo-bg: #0a0e16;
   --cvo-text: #eef2ff;
   --cvo-muted: #94a3b8;
@@ -39,7 +39,7 @@
   --cvo-warn: #fb7185;
 }
 
-:global(body) {
+body {
   margin: 0;
   background: radial-gradient(circle at 20% -10%, rgba(56, 189, 248, 0.12), transparent 45%),
     radial-gradient(circle at 90% 0%, rgba(52, 211, 153, 0.08), transparent 35%), var(--cvo-bg);

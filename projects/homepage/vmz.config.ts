@@ -1,11 +1,11 @@
-import { defineConfig } from '@vmz/vmz';
+import { defineConfig } from '@vmz/plugin';
 
 export default defineConfig({
     delivery: {
         default: 'static',
         profiles: {
             /** Pages CDN — no ServerArtifact. */
-            static: { host: 'browser', assembly: 'static-cdn' },
+            static: { host: 'browser', assembly: 'web-static' },
             /**
              * CVO edge host — emits `vmz.server.artifact.v0` + `#server` modules.
              * Author surface remains `<script server>`; CVO only hosts the artifact.

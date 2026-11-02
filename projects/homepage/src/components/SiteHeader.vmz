@@ -1,14 +1,14 @@
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="/" aria-label={homeAriaLabel}>
-        <span class="logo-mark">{brandShort}</span>
+      <a class="logo" href="/" :aria-label="homeAriaLabel">
+        <span class="logo-mark">{{ brandShort }}</span>
         <span class="logo-divider" aria-hidden="true"></span>
-        <span class="logo-caption">{brandFull}</span>
+        <span class="logo-caption">{{ brandFull }}</span>
       </a>
-      <nav class="nav" aria-label={navPrimary}>
-        <a href="/">{navHome}</a>
-        <a href="#stack">{navStack}</a>
+      <nav class="nav" :aria-label="navPrimary">
+        <a href="/">{{ navHome }}</a>
+        <a href="#stack">{{ navStack }}</a>
       </nav>
       <div class="header-aside">
         <span class="header-status"><i aria-hidden="true"></i> edge backend</span>

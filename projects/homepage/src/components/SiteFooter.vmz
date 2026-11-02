@@ -1,8 +1,8 @@
 <template>
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>{footerTagline}</p>
-      <p class="footer-meta">{footerMeta}</p>
+      <p>{{ footerTagline }}</p>
+      <p class="footer-meta">{{ footerMeta }}</p>
     </div>
   </footer>
 </template>

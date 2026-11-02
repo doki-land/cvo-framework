@@ -11,6 +11,9 @@ importers:
       '@biomejs/biome':
         specifier: ^2.5.7
         version: 2.5.10
+      '@doki-land/nifty':
+        specifier: ^0.0.12
+        version: 0.0.12
       '@types/node':
         specifier: ^22.15.0
         version: 22.20.1
@@ -26,22 +29,38 @@ importers:
       '@cvo/core':
         specifier: workspace:*
         version: link:../runtimes/cvo-core
+      '@vmz/core':
+        specifier: 0.3.12
+        version: 0.3.12
+      '@vmz/ui':
+        specifier: 0.3.12
+        version: 0.3.12(@vmz/ui-icons@0.3.12)
+      '@vmz/ui-icons':
+        specifier: 0.3.12
+        version: 0.3.12(@vmz/ui@0.3.12)
+    devDependencies:
+      '@vmz/plugin':
+        specifier: 0.3.12
+        version: 0.3.12
+      '@vmz/vmz':
+        specifier: 0.3.12
+        version: 0.3.12(typescript@5.9.3)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+
+  projects/homepage-api:
+    dependencies:
+      '@cvo/core':
+        specifier: workspace:*
+        version: link:../runtimes/cvo-core
       '@cvo/server':
         specifier: workspace:*
         version: link:../runtimes/cvo-server
-      '@vmz/core':
-        specifier: 0.1.10
-        version: 0.1.10
-      '@vmz/ui':
-        specifier: 0.1.10
-        version: 0.1.10
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20250317.0
+        specifier: ^4.20250214.0
         version: 4.20260702.1
-      '@vmz/vmz':
-        specifier: 0.1.10
-        version: 0.1.10(typescript@5.9.3)
       typescript:
         specifier: ^5.8.3
         version: 5.9.3
@@ -357,6 +376,35 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
+
+  '@doki-land/nifty-darwin-arm64@0.0.12':
+    resolution: {integrity: sha512-J/ojM16Dyi/yjQwZuQEfCG42Wsm3lseAbpFsgndY9Zn1rv9ZwLyVC2DtcsYIFY41v8OZn1U6xwFZksST637hFw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@doki-land/nifty-darwin-x64@0.0.12':
+    resolution: {integrity: sha512-rGoNoZuxPXIbFo1IiIPqtwohvdrYvj8e5PH0E2sdZtpUFM++aU4ssy/ZM0lnP7iCIYJt3ocmshWSajQQ6vEM+w==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@doki-land/nifty-linux-arm64@0.0.12':
+    resolution: {integrity: sha512-VAs1sWyHylMlncj/IJsaxIZ2W+vSGHKu85RhVnwxw6Ic9c54ElyGCzBmAyeShW2TNswn7hUFioWDiJ1GtXGuqg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@doki-land/nifty-linux-x64@0.0.12':
+    resolution: {integrity: sha512-mbe8MvE3ki6wPPG9BRuJ52kFoTh+yCmAIbKxBTylvbhk+OD99i/jRsDH8G8Zs6rwhPgmtx4/yvQXmRmilCaxQw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@doki-land/nifty-win32-x64@0.0.12':
+    resolution: {integrity: sha512-djCPHuouiQeyhi5Uglp+aWHjG019smTF1Zs8/Pc3xL1ESCYvVgxCMf5RZgyFyiMGrVJGnRxKVf8r7gKqIywyCQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@doki-land/nifty@0.0.12':
+    resolution: {integrity: sha512-96ZGSKDEQEaGlhfyqi/1MNbGK1mRUr6jX+t5jjxpU7KkcnuBnuR4jU3jstuOS+7zHN3KmxT50Kj4/3cH8GFZlQ==}
+    hasBin: true
 
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
@@ -700,40 +748,78 @@ packages:
   '@types/node@22.20.1':
     resolution: {integrity: sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==}
 
-  '@vmz/core@0.1.10':
-    resolution: {integrity: sha512-YzSzv1yh3i/VYyA0JgqxY3DpzMyMAHMEI3CBz2Mt2NcIiUTcTvOwogzQvAMEwmA1NmIVvcbb5vwgj6L9TSuIrQ==}
-
-  '@vmz/plugin@0.1.10':
-    resolution: {integrity: sha512-SUHBLDta9gLjQBANtdZSYfCEhZwvR95MAe5+uxz5gLwm4+pBP8xIXtTPYCjDCw+IaMLE0ZgPhO777vTTaVJCrw==}
-
-  '@vmz/protocol@0.1.10':
-    resolution: {integrity: sha512-CHsmlKg7ndFpj+i5tZXTKJ9w8qqVDKvlPJAjlJWsw04haUTFlT+C5Sgzrj7T7+CUHWx1zZhgW5bKiFEP/bGOLQ==}
+  '@vmz/commander@0.2.8':
+    resolution: {integrity: sha512-hDTOJGKHam1+GYnOJY8M0yqctrBt8RfdkvUVmkeu1LQVRyfWRZ8kqWnTdYcW8PoCWKP4DdDpcWJrbmI7rn68Bg==}
     engines: {node: '>=20'}
 
-  '@vmz/ui@0.1.10':
-    resolution: {integrity: sha512-CprGGvq29NbBy7biV4d7+78GqNox2WlxAZp/s85ALAlUCvbHgghRb4qxG+1JVWLXnh7v6CRGpbVAfVNrQqTHyw==}
+  '@vmz/commander@0.3.12':
+    resolution: {integrity: sha512-Fs2CJZobP3K8qbpYF7yrHqmsBzG5/FMxAwITiiyJG0Aw4pQOlxW6mFTLwBkzjdwVi8/UIKfqiuntJSiKyPT5XQ==}
+    engines: {node: '>=20'}
 
-  '@vmz/vmz-darwin-arm64@0.1.10':
-    resolution: {integrity: sha512-qndF7Iq0ykr/jrPn1lyoV0etXlwJh0+as3j3LpbEY6hMqUKWFdehq98aGmjkRwX1tjqnjfAVuk7zQFeIKT2dxA==}
+  '@vmz/core@0.3.12':
+    resolution: {integrity: sha512-IZp0a721lDCbMEJfufVVelcguDaYfNKuSUgGxGyW4KZ+df8DF6xgVeLuVVo5lYGMilv81J29ubc+c6veiGr7cg==}
+
+  '@vmz/diagnostic@0.3.12':
+    resolution: {integrity: sha512-JlsFTFuSRFH89PtuQUvwuaiiw1Yr+oR+3BwjhZ2lGTDQ6zhMaUryffb7ZDPd+TO9tUIGKpUxekOsuMwgby6Ynw==}
+    engines: {node: '>=20'}
+
+  '@vmz/plugin@0.3.12':
+    resolution: {integrity: sha512-crOLXO+2dbpKGZbzHHimiKDipNu6iHY4zFilo4nNACSVbS5vuKLcKc8TL06aBXYPnBbrSFkeIjB5WxnrD6ZBzA==}
+
+  '@vmz/protocol@0.3.12':
+    resolution: {integrity: sha512-oAwBnhVJw9TvCYevwGwKh8Pr+Ruthmyr8qUfq/3XrKRvIKrg2vY6O2+0MExwPypPeX2vhXwW8+WvFYVSNMJSCQ==}
+    engines: {node: '>=20'}
+
+  '@vmz/ui-icons@0.3.12':
+    resolution: {integrity: sha512-mzIC3oIJzar193jYXBTtVOq2w2f6Dqk4vX24F96jkkrQtrcm/niQzPLVpa3qIx0JssVdbFzSl/NrndxqfCLUTw==}
+    peerDependencies:
+      '@vmz/ui': 0.3.12
+
+  '@vmz/ui@0.3.12':
+    resolution: {integrity: sha512-cLIlfLUwem0/vtXKJe5ZbmUgo3G0IrMkAA5a8f8CYYfx72bNWVFxaSRW+m8d1/7nHOD/HM5bz84IjzxlrXU0Lw==}
+    peerDependencies:
+      '@vmz/ui-icons': 0.3.12
+    peerDependenciesMeta:
+      '@vmz/ui-icons':
+        optional: true
+
+  '@vmz/vmz-darwin-arm64@0.3.12':
+    resolution: {integrity: sha512-BioHMvjPMMcor9VZRUCr9tLm2XyC71dPgLGoVtfwGzkK/GcPkQVcn38R+uBm7hKhiY09OJMYH2sRYspFRw7aiA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@vmz/vmz-linux-x64@0.1.10':
-    resolution: {integrity: sha512-VKNZDHu+pmOfAe6QBxRl5RjqTlKX4gDO25k6l2thAP57xX038Vpeh8/akYeM9dG6NHkNa7rXmQ1UkjhVutPFjA==}
+  '@vmz/vmz-darwin-x64@0.3.12':
+    resolution: {integrity: sha512-lHuqv963+9BAjwagrENWoJzYqVRZ2NmOjysSZeAwlnn2rNtEo33z9hXbo4ZBZtAh3dPNM+zFFPkcXDTMKp9Pvg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@vmz/vmz-linux-arm64@0.3.12':
+    resolution: {integrity: sha512-4r8isVyV2h1DeT2TdAlHatx66LBKW2wDTvaF7uxtC7k9Q9L/Sj2ObVPdonXcytKTezBb1qNK6s/jh1GS5L8yNA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@vmz/vmz-linux-x64@0.3.12':
+    resolution: {integrity: sha512-5VbLc0z/0sByHII9uOPS83vVKMT14633KXkN4ZEdO5X5qv8BIxQgSJAX980sjBpiQ+Z5HCzUvWYTXfx4HwsXHA==}
     cpu: [x64]
     os: [linux]
 
-  '@vmz/vmz-win32-x64@0.1.10':
-    resolution: {integrity: sha512-sXgutFZUvVULxRIhooSBIATZHmcyt3IxHIx2SjYo3YjRuWyEjtIXlA989eC/ta8qkJhDn9xSEUXEIpWG5glgXw==}
+  '@vmz/vmz-win32-arm64@0.3.12':
+    resolution: {integrity: sha512-DlJj1z2He9O1xWvt5okttPxgUlJ0IV4X/08jVvp8P29VXrS0Z1YhvWbPXkdf2/+o6q0b+dsgeFl9ruOxsukg+w==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@vmz/vmz-win32-x64@0.3.12':
+    resolution: {integrity: sha512-6zHVJDmJ+WWrKnY1uYV94ba3HQWniu4dZjqN/H5bwjIoeRNDCaGo982fJTR9rCmReoU/27nZeZG9q6Bgfg82xg==}
     cpu: [x64]
     os: [win32]
 
-  '@vmz/vmz@0.1.10':
-    resolution: {integrity: sha512-AyCHfI1eqSAUX6ojjHYNMm4GPt018Ykqwtip9cDhdVQp9UB7sY/FrpsP8ZtYtGQP5Qjoa8Ez/zA0TlHVpvFD6A==}
+  '@vmz/vmz@0.3.12':
+    resolution: {integrity: sha512-b1xsKccZKpLjT1KPOndW/RJATRM0DOwT6nF8n6BD3tivPr3mXtnGPgJ/zKikVwyJgOlZX43lr0GmrtlPleoPmQ==}
+    engines: {node: '>=24.12.0'}
     hasBin: true
     peerDependencies:
-      '@vmz/plugin-markdown-it': 0.1.10
-      '@vmz/test': 0.1.10
+      '@vmz/plugin-markdown-it': 0.3.12
+      '@vmz/test': 0.3.12
       typescript: ^5.8.3
     peerDependenciesMeta:
       '@vmz/plugin-markdown-it':
@@ -831,11 +917,6 @@ packages:
 
   jiti@2.7.0:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
-    hasBin: true
-
-  json5@2.2.3:
-    resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
-    engines: {node: '>=6'}
     hasBin: true
 
   kleur@4.1.5:
@@ -997,6 +1078,32 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  '@doki-land/nifty-darwin-arm64@0.0.12':
+    optional: true
+
+  '@doki-land/nifty-darwin-x64@0.0.12':
+    optional: true
+
+  '@doki-land/nifty-linux-arm64@0.0.12':
+    optional: true
+
+  '@doki-land/nifty-linux-x64@0.0.12':
+    optional: true
+
+  '@doki-land/nifty-win32-x64@0.0.12':
+    optional: true
+
+  '@doki-land/nifty@0.0.12':
+    dependencies:
+      '@vmz/commander': 0.2.8
+      jiti: 2.7.0
+    optionalDependencies:
+      '@doki-land/nifty-darwin-arm64': 0.0.12
+      '@doki-land/nifty-darwin-x64': 0.0.12
+      '@doki-land/nifty-linux-arm64': 0.0.12
+      '@doki-land/nifty-linux-x64': 0.0.12
+      '@doki-land/nifty-win32-x64': 0.0.12
 
   '@emnapi/runtime@1.11.3':
     dependencies:
@@ -1220,40 +1327,71 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@vmz/core@0.1.10':
+  '@vmz/commander@0.2.8': {}
+
+  '@vmz/commander@0.3.12': {}
+
+  '@vmz/core@0.3.12':
     dependencies:
       linkedom: 0.18.13
+    optionalDependencies:
+      '@vmz/vmz-darwin-arm64': 0.3.12
+      '@vmz/vmz-darwin-x64': 0.3.12
+      '@vmz/vmz-linux-arm64': 0.3.12
+      '@vmz/vmz-linux-x64': 0.3.12
+      '@vmz/vmz-win32-arm64': 0.3.12
+      '@vmz/vmz-win32-x64': 0.3.12
     transitivePeerDependencies:
       - canvas
 
-  '@vmz/plugin@0.1.10':
+  '@vmz/diagnostic@0.3.12': {}
+
+  '@vmz/plugin@0.3.12':
     dependencies:
-      '@vmz/protocol': 0.1.10
+      '@vmz/protocol': 0.3.12
 
-  '@vmz/protocol@0.1.10': {}
+  '@vmz/protocol@0.3.12': {}
 
-  '@vmz/ui@0.1.10': {}
-
-  '@vmz/vmz-darwin-arm64@0.1.10':
-    optional: true
-
-  '@vmz/vmz-linux-x64@0.1.10':
-    optional: true
-
-  '@vmz/vmz-win32-x64@0.1.10':
-    optional: true
-
-  '@vmz/vmz@0.1.10(typescript@5.9.3)':
+  '@vmz/ui-icons@0.3.12(@vmz/ui@0.3.12)':
     dependencies:
-      '@vmz/core': 0.1.10
-      '@vmz/plugin': 0.1.10
-      '@vmz/protocol': 0.1.10
-      jiti: 2.7.0
-      json5: 2.2.3
+      '@vmz/ui': 0.3.12(@vmz/ui-icons@0.3.12)
+
+  '@vmz/ui@0.3.12(@vmz/ui-icons@0.3.12)':
     optionalDependencies:
-      '@vmz/vmz-darwin-arm64': 0.1.10
-      '@vmz/vmz-linux-x64': 0.1.10
-      '@vmz/vmz-win32-x64': 0.1.10
+      '@vmz/ui-icons': 0.3.12(@vmz/ui@0.3.12)
+
+  '@vmz/vmz-darwin-arm64@0.3.12':
+    optional: true
+
+  '@vmz/vmz-darwin-x64@0.3.12':
+    optional: true
+
+  '@vmz/vmz-linux-arm64@0.3.12':
+    optional: true
+
+  '@vmz/vmz-linux-x64@0.3.12':
+    optional: true
+
+  '@vmz/vmz-win32-arm64@0.3.12':
+    optional: true
+
+  '@vmz/vmz-win32-x64@0.3.12':
+    optional: true
+
+  '@vmz/vmz@0.3.12(typescript@5.9.3)':
+    dependencies:
+      '@vmz/commander': 0.3.12
+      '@vmz/core': 0.3.12
+      '@vmz/diagnostic': 0.3.12
+      '@vmz/plugin': 0.3.12
+      '@vmz/protocol': 0.3.12
+    optionalDependencies:
+      '@vmz/vmz-darwin-arm64': 0.3.12
+      '@vmz/vmz-darwin-x64': 0.3.12
+      '@vmz/vmz-linux-arm64': 0.3.12
+      '@vmz/vmz-linux-x64': 0.3.12
+      '@vmz/vmz-win32-arm64': 0.3.12
+      '@vmz/vmz-win32-x64': 0.3.12
       typescript: 5.9.3
     transitivePeerDependencies:
       - canvas
@@ -1364,8 +1502,6 @@ snapshots:
       entities: 7.0.1
 
   jiti@2.7.0: {}
-
-  json5@2.2.3: {}
 
   kleur@4.1.5: {}
 

@@ -1,10 +1,10 @@
 <template>
   <section class="api-status" aria-live="polite">
     <div class="api-status__head">
-      <span class="api-status__label">{statusLabel}</span>
-      <span class="api-status__pill" data-state={state}>{stateLabel}</span>
+      <span class="api-status__label">{{ statusLabel }}</span>
+      <span class="api-status__pill" :data-state="state">{{ stateLabel }}</span>
     </div>
-    <pre class="api-status__body">{bodyText}</pre>
+    <pre class="api-status__body">{{ bodyText }}</pre>
   </section>
 </template>
 
